@@ -1,0 +1,106 @@
+*{                                 /* this is to add margin and padding to the entire game */   
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /*background-color: aqua;*/
+    overflow: hidden;
+}
+
+.gameContainer{
+    background-image: url(11.jpg);
+    background-repeat: repeat;           /* used so that the background image doesnt repeat multiple times */
+    background-size: 100vw 100vh;           /* vw - view port width || vh - view port height */
+    width: 100%;
+    height: 100vh;
+    display: grid;
+}
+
+.reload-button{
+     font-size: 25px;
+     padding: 10px;
+     left: 87%;
+     top: 8%;
+     position: absolute;
+     text-align:left;
+     margin: auto;
+     background-color:rgb(131, 212, 171);
+     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ }
+
+.rabbit{
+    background-image: url(rabbit.png);
+    background-repeat: no-repeat;              /* dont want backgroung to repeat*/
+    background-size: cover;                    /* used to cover whole background*/
+    width: 200px;
+    height: 200px;
+    position: absolute;                         /* the parent positioned element will be relative to its position i.e. at bottom*/
+    bottom: 1.5px;                              /* used to keep 1.5px distance from the bottom */
+    left: 52px;                             /* it is used to shift the rabbit  a bit away from the left side of the screen*/
+}
+
+.obstacle{
+    background-image: url(turtle.png);
+    background-size: cover;
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    bottom: 1.5px;
+    right : 2px;
+}
+
+.animateRabbit{
+    animation: rabbit 0.6s linear;              /*we have created an animation named rabbit*/
+}
+
+.obstacleAni{                               /* we created a class called obstacleAni*/
+    animation: obstacleAni 3s linear infinite;
+}
+
+.gameOver{
+    position: relative;
+    top: 63px;
+    font-size: 63px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    /* visibility: hidden; */
+}
+
+#scoreCont{
+    background-color: rgb(245, 236, 236); 
+    font-weight: bold; 
+    position: absolute;
+    left: 55px;
+    top: 41px;
+    border: 2px solid black;
+    padding: 10px;
+    font-family: 'Ubuntu', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 130px ;
+    height: 20px;
+    
+}
+
+/*given below are 2 animations*/
+@keyframes rabbit{                          /* to add animation we use keyframes (we are giving animation movement to the rabbit to jump up and come down)*/
+    0%{
+        bottom: 0;                          /* botton 0 means the rabbit is on the ground*/
+    }
+    50%{
+        bottom: 442px;                      /* botton 442 means the rabbit is jumping away from the  ground to avoid obstacles*/
+    }
+    100%{
+        bottom: 0;                          /* botton 0 means after jumping the rabbit is again coming back on the ground*/
+    }
+}
+
+
+@keyframes obstacleAni{                    /* animation - used to animate the obstacle*/
+    0%{
+        left: 100vw;                        /* we want obstacle to move till the end on the left side*/
+    }
+    100%{
+        left: -10vw;
+    }
+}
+
